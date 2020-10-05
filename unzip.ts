@@ -18,7 +18,7 @@ export const unZipFromFile = async (filePath: string, destinationPath: string = 
 }
 const unzipProcess = async (zipSourcePath: string, destinationPath: string ): Promise<boolean> =>{
     const unzipCommandProcess = Deno.run({
-        cmd: Deno.build.os === 'windows' ? ["PowerShell", "Expand-Archive", "-Path", zipSourcePath, "-DestinationPath", destinationPath] : ["unzip", zipSourcePath, "-d", `~/${destinationPath}`],
+        cmd: Deno.build.os === 'windows' ? ["PowerShell", "Expand-Archive", "-Path", zipSourcePath, "-DestinationPath", destinationPath] : ["unzip", zipSourcePath, "-d", destinationPath],
         stdout: "piped",
         stderr: "piped"
     })
