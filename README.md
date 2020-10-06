@@ -14,7 +14,7 @@ import { unZipFromFile } from 'https://x.nest.land/zip@v1.0.0/mod.ts'
 ```
 #### Usage:
 ```js
-unZipFromFile([filePath]:string, [destinationPath]:string = './', [options]:{})
+unZipFromFile([filePath]:string, [destinationPath]:string = './', [options]:{}): Promise<string | false>
 ```
 ``arguments``
 - **filePath**: string of zip file path.
@@ -22,17 +22,18 @@ unZipFromFile([filePath]:string, [destinationPath]:string = './', [options]:{})
 - **options**: object of unzipping options
 
 ``return``
-(string|false) The destination path or false if the extraction process fails.
+Promise<string | false> The destination path or false if the extraction process fails.
 ### Examples:
 ```js
 // unZip From File
-console.log(unZipFromFile('myfile.zip'))                        //=> ./
-console.log(unZipFromFile('myfile.zip', 'new-dir'))             //=> new-dir
+console.log(await unZipFromFile('myfile.zip'))                        //=> ./
+console.log(await unZipFromFile('myfile.zip', 'new-dir'))             //=> new-dir
 console.log(await unZipFromFile('myfile.zip', null, {
     includeFileName: true
 }))                                                             //=> myfile
-console.log(unZipFromFile('myfile.zip', 'new-dir', {
+console.log(await unZipFromFile('myfile.zip', 'new-dir', {
     includeFileName: true
 }))                                                             //=> new-dir\myfile
 ```
+## all thenks to [``@Return-Errors``](https://github.com/Return-Errors)
 ## Contribute with us from [``Here``](https://github.com/moncefplastin07/deno-zip)
