@@ -1,1 +1,1 @@
-export { unZipFromFile } from "./unzip.ts";
+export { unZipFromFile, unZipFromURL } from "./unzip.ts";
