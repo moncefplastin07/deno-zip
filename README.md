@@ -1,7 +1,7 @@
 # Deno Zip archive
 Streaming cross-platform unzip tool written for Deno 🦕. 
 ### the module require permision below
-- **--allow-run**: for run u
+- **--allow-run**: for running unzipping command in command prompt
 - **--allow-read**: check the existence of the file before starting the decompression process.
 - **--unstable**: Since this tool uses version ``0.85.0`` of the standard Deno modules that has some unstable features
 
