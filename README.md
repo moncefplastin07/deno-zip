@@ -1,17 +1,17 @@
 # Deno Zip archive
 Streaming cross-platform unzip tool written for Deno 🦕. 
 ### the module require permision below
-- **--allow-run**
-- **--allow-env**
-- **--unstable**
+- **--allow-run**: for run u
+- **--allow-read**: check the existence of the file before starting the decompression process.
+- **--unstable**: Since this tool uses version ``0.85.0`` of the standard Deno modules that has some unstable features
 
 ### import the module in your deno app
 ```js
-import { unZipFromFile, unZipFromURL } from 'https://deno.land/x/zip@v1.1.0/mod.ts'
+import { unZipFromFile, unZipFromURL } from 'https://deno.land/x/zip@v1.1.1/mod.ts'
 ```
 or from ``nest.land`` packages
 ```js
-import { unZipFromFile, unZipFromURL } from 'https://x.nest.land/zip@v1.1.0/mod.ts'
+import { unZipFromFile, unZipFromURL } from 'https://x.nest.land/zip@v1.1.1/mod.ts'
 ```
 #### Usage:
 ```js
@@ -37,7 +37,7 @@ console.log(await unZipFromFile('myfile.zip', 'new-dir', {
     includeFileName: true
 }))                                                             //=> new-dir\myfile
 // 
-console.log(await unZipFromURL('https://github.com/moncefplastin07/deno-zip/archive/master.zip')                                               //=> ./
+console.log(await unZipFromURL('https://github.com/moncefplastin07/deno-zip/archive/master.zip'))                                               //=> ./
 ```
 ### NEW features
 **``unZipFromURL``:** now You can download the zip file and unzipping them directly (You can use the other arguments , such as unZip From File like ``destinationPath`` and ``options``)
