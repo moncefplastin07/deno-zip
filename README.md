@@ -37,7 +37,7 @@ console.log(await unZipFromFile('myfile.zip', 'new-dir', {
     includeFileName: true
 }))                                                             //=> new-dir\myfile
 // 
-console.log(await unZipFromURL('https://github.com/moncefplastin07/deno-zip/archive/master.zip'))                                               //=> ./
+console.log(await unZipFromURL('https://github.com/moncefplastin07/deno-zip/archive/main.zip'))                                               //=> ./
 ```
 ### NEW features
 **``unZipFromURL``:** now You can download the zip file and unzipping them directly (You can use the other arguments , such as unZip From File like ``destinationPath`` and ``options``)
