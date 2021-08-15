@@ -1,6 +1,6 @@
 # Deno Zip archive
 
-Streaming cross-platform unzip tool written for Deno 🦕.
+Streaming cross-platform zip tool written for Deno 🦕.
 
 ### the module require permision below
 
@@ -14,6 +14,7 @@ Streaming cross-platform unzip tool written for Deno 🦕.
 
 ```js
 import {
+  compress,
   decompress
 } from "https://deno.land/x/zip@v1.2.0/mod.ts";
 ```
@@ -22,15 +23,46 @@ or from `nest.land` packages
 
 ```js
 import {
-  decompress,
-  unZipFromURL,
+  compress,
+  decompress
 } from "https://x.nest.land/zip@v1.2.0/mod.ts";
 ```
 
 #### Usage:
+### Compressing
+Compress files and folders to zip file with ``compress`` method
+addin: v1.2.0
+```js
+interface CompressOptions {
+  overwrite?: boolean;
+}
+compress(files:string | string[],
+  archiveName: string = "./archive.zip",
+  options?: CompressOptions):Promise<boolean>
+decompress(filePath:string, [destinationPath]:string = './', options:{}): Promise<string | false>
+```
+**`arguments`**
+
+- **files**: (string) of one file or more or array of folders and files paths
+- **archiveName**: (string) string of name and destination path of zip file (Where
+  do you want the get compressed zip file) by default is './archive.zip' (current working
+  directory (CWD))
+- **options**: object of compressing options
+-   **overwrite**: boolean
+- 
+### Examples:
 
 ```js
-decompress([filePath]:string, [destinationPath]:string = './', [options]:{}): Promise<string | false>
+// unZip From File
+console.log(await compress("./myfiles")); //=> boolean
+console.log(await compress("./mypicter.png", "new-dir/mypicter.zip")); //=> boolean
+console.log(await compress(["./mypicters", "./textpalne.txt"], "compressed.zip", {overwrite:true})); //=> boolean
+
+```
+### Decompressing
+
+```js
+decompress(filePath:string, destinationPath:string = './', options:{}): Promise<string | false>
 ```
 
 **`arguments`**
@@ -60,20 +92,7 @@ console.log(
     includeFileName: true,
   }),
 ); //=> new-dir\myfile
-//
-console.log(
-  await unZipFromURL(
-    "https://github.com/moncefplastin07/deno-zip/archive/main.zip",
-  ),
-); //=> ./
+
 ```
-
-### NEW features
-
-**`unZipFromURL`:** now You can download the zip file and unzipping them
-directly (You can use the other arguments , such as unZip From File like
-`destinationPath` and `options`)
-
-## all thenks to [`@Return-Errors`](https://github.com/Return-Errors)
 
 ## Contribute with us from [`Here`](https://github.com/moncefplastin07/deno-zip)
