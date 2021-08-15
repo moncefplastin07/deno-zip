@@ -41,9 +41,8 @@ const decompressProcess = async (
         destinationPath,
       ]
       : ["unzip", zipSourcePath, "-d", destinationPath],
-    stdout: "piped",
-    stderr: "piped",
   });
-
-  return (await unzipCommandProcess.status()).success;
+  const processStatus = (await unzipCommandProcess.status()).success
+  Deno.close(unzipCommandProcess.rid)
+  return processStatus;
 };
