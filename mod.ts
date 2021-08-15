@@ -1,1 +1,2 @@
-export { unZipFromFile, unZipFromURL } from "./unzip.ts";
+export { compress } from "./compress.ts";
+export { decompress } from "./decompress.ts";
