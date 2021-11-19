@@ -12,7 +12,9 @@ const compressProcess = async (
       join(Deno.cwd(), archiveName)
     }.zip already exists, Use the {overwrite: true} option to overwrite the existing archive file`;
   }
-  const filesList = typeof files === "string" ? files : files.join(Deno.build.os === "windows" ? ", " : " ");
+  const filesList = typeof files === "string"
+    ? files
+    : files.join(Deno.build.os === "windows" ? ", " : " ");
   const compressCommandProcess = Deno.run({
     cmd: Deno.build.os === "windows"
       ? [
@@ -24,10 +26,10 @@ const compressProcess = async (
         archiveName,
         options?.overwrite ? "-Force" : "",
       ]
-      : ["zip", archiveName, filesList],
+      : ["zip", archiveName, ...filesList.split(" ")],
   });
-  const processStatus = (await compressCommandProcess.status()).success
-  Deno.close(compressCommandProcess.rid)
+  const processStatus = (await compressCommandProcess.status()).success;
+  Deno.close(compressCommandProcess.rid);
   return processStatus;
 };
 
