@@ -7,8 +7,6 @@ Streaming cross-platform zip tool written for Deno 🦕.
 - **--allow-run**: for running unzipping command in command prompt
 - **--allow-read**: check the existence of the file before starting the
   decompression process.
-- **--unstable**: Since this tool uses version `0.104.0` of the standard Deno
-  modules that has some unstable features
 
 ### import the module in your deno app
 
