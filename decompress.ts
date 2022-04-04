@@ -38,7 +38,7 @@ const decompressProcess = async (
         "-Path",
         `"${zipSourcePath}"`,
         "-DestinationPath",
-        `"${destinationPath}",
+        `"${destinationPath}"`,
       ]
       : ["unzip", zipSourcePath, "-d", destinationPath],
   });
