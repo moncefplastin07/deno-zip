@@ -36,9 +36,9 @@ const decompressProcess = async (
         "PowerShell",
         "Expand-Archive",
         "-Path",
-        zipSourcePath,
+        `"${zipSourcePath}"`,
         "-DestinationPath",
-        destinationPath,
+        `"${destinationPath}"`,
       ]
       : ["unzip", zipSourcePath, "-d", destinationPath],
   });
