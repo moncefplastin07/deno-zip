@@ -14,7 +14,7 @@ Streaming cross-platform zip tool written for Deno 🦕.
 import {
   compress,
   decompress
-} from "https://deno.land/x/zip@v1.2.2/mod.ts";
+} from "https://deno.land/x/zip@v1.2.3/mod.ts";
 ```
 
 or from `nest.land` packages
@@ -23,7 +23,7 @@ or from `nest.land` packages
 import {
   compress,
   decompress
-} from "https://x.nest.land/zip@v1.2.2/mod.ts";
+} from "https://x.nest.land/zip@v1.2.3/mod.ts";
 ```
 
 #### Usage:
