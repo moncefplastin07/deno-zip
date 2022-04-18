@@ -26,7 +26,7 @@ const compressProcess = async (
         archiveName,
         options?.overwrite ? "-Force" : "",
       ]
-      : ["zip", archiveName, ...filesList.split(" ")],
+      : ["zip", "-r", archiveName, ...filesList.split(" ")],
   });
   const processStatus = (await compressCommandProcess.status()).success;
   Deno.close(compressCommandProcess.rid);
