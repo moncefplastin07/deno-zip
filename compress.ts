@@ -1,6 +1,7 @@
 import { exists, join } from "./deps.ts";
 interface CompressOptions {
   overwrite?: boolean;
+  flags: string[];
 }
 const compressProcess = async (
   files: string | string[],
@@ -26,7 +27,7 @@ const compressProcess = async (
         archiveName,
         options?.overwrite ? "-Force" : "",
       ]
-      : ["zip", "-r", archiveName, ...filesList.split(" ")],
+      : ["zip", "-r", ...options?.flags ?? [], archiveName, ...filesList.split(" ")],
   });
   const processStatus = (await compressCommandProcess.status()).success;
   Deno.close(compressCommandProcess.rid);
