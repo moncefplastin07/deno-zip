@@ -26,7 +26,7 @@ export const decompress = async (
     : destinationPath;
 
   // return the unzipped file path or false whene the unzipping Process failed
-  return await decompressProcess(filePath, fullDestinationPath)
+  return await decompressProcess(filePath, fullDestinationPath, options)
     ? fullDestinationPath
     : false;
 };
@@ -46,7 +46,13 @@ const decompressProcess = async (
         `"${destinationPath}"`,
         options?.overwrite ? "-Force" : "",
       ]
-      : ["unzip", zipSourcePath, "-d", destinationPath],
+      : [
+        "unzip",
+        options?.overwrite ? "-o" : "",
+        zipSourcePath,
+        "-d",
+        destinationPath,
+      ],
   });
   const processStatus = (await unzipCommandProcess.status()).success;
   Deno.close(unzipCommandProcess.rid);
